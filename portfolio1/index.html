@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Portfolio</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 40px;
+            margin-right: 10px;
+        }
+
+        nav {
+            display: flex;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            background: #fff;
+            height: 3px;
+            width: 25px;
+            margin: 4px;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background: #333;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            width: 100%;
+        }
+
+        .mobile-menu a {
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #fff;
+            border-bottom: 1px solid #333;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background: #333;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin: 20px 0;
+            color: white;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background: #04a76b;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 5px;
+        }
+
+        .btn:hover {
+            background: #037a4f;
+        }
+        #skills{
+            background-color:#fff;
+        }
+
+        /* Grid Layouts */
+        .skills-grid{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px;
+            padding: 10px;
+            color:#222;
+
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px;
+            padding: 10px;
+            
+        }
+
+        .card {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            color: #333;
+        }
+
+        .card p {
+            color: #555;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 20px;
+            background: #333;
+            color: #fff;
+            text-align: center;
+        }
+
+        .contact a {
+            color: #04a76b;
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: #aaa;
+            text-align: center;
+            padding: 10px 20px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .mobile-menu.show {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="icon1.png" alt="Logo">
+            <p>AKASH M J</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="#home">Home</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Hello, I'm <span style="color: #04a76b;">AKASH M J</span></h1>
+        <p>I've completed my B.tech in Computer Science and Engineering discipline in Bapuji Engineering and Technology Davangere.<br> An enthusiastic and ambitious job seeker who aspire to work in a challenging environment which utilizes <br>my knowledge about programming and computer science to develop practical solutions to real life.
+        <br>My Hobbies are Playing chess, video editing, watching movies, listening to songs</p>        <a href="#contact" class="btn">Get in Touch</a>
+        <a href="https://drive.google.com/file/d/1L7rhuDSoQkDFIKTL_4c17XUsJ9dYeJKK/view?usp=drive_link" class="btn">Resume</a>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 style="text-align:center;">Skills</h2>
+        <div class="skills-grid">
+            <div class="card"><h3>C & Java</h3></div>
+            <div class="card"><h3>OOPs</h3></div>
+            <div class="card"><h3>DSA</h3></div>
+            <div class="card"><h3>JDBC, Hibernate & JSP</h3></div>
+            <div class="card"><h3>J2EE</h3></div>
+            <div class="card"><h3>SQL</h3></div>
+            <div class="card"><h3>Full Stack Web Development</h3></div>
+            <div class="card"><h3>Android Application Development</h3></div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 style="text-align:center;">Projects</h2>
+        <div class="projects-grid">
+            <div class="card">
+                <h3>Garbage Management System</h3>
+                <p>A web-based system for managing garbage collection using JDBC and MySQL.</p><br>
+                <a href="https://github.com/akashmj1/GarManSys" class="btn">View Project</a>
+            </div>
+            <div class="card">
+                <h3>Liver Cirrhosis Prediction</h3>
+                <p>A Flask-based application to predict liver cirrhosis using machine learning.</p><br>
+                <a href="https://github.com/akashmj1/Liver_Cirrhosis" class="btn">View Project</a><br>
+            </div>
+            <div class="card">
+                <h3>Movie Ticket Booking</h3>
+                <p>A Movie Ticket Booking system integrates JSP, JDBC, and MySQL to enable dynamic movie selection, seat booking, and real-time ticket management via a web interface.</p><br>
+                <a href="#" class="btn">View Project(Soon)</a>
+            </div>
+            <div class="card">
+                <h3>Android Messaging Application</h3>
+                <p>An Android Messaging Application enables real-time text communication, multimedia sharing, and notifications, offering a seamless and user-friendly chat experience.</p><br>
+                <a href="#" class="btn">View Project(Soon)</a>
+            </div>
+            <div class="card">
+                <h3>Address Book</h3>
+                <p>An Address Book application using J2EE, JDBC, and MySQL enables users to manage, update, and store contact information efficiently through a dynamic web interface.</p><br>
+                <a href="#" class="btn">View Project(Soon)</a>
+            </div>
+            <div class="card">
+                <h3>Banking Android Application</h3>
+                <p>A Banking Android Application designed for employees streamlines customer management, account services, and transaction processing efficiently on-the-go.</p><br>
+                <a href="#" class="btn">View Project(Soon)</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="Certification" style="padding-left:5%;">
+        <h2>Certification</h2>
+        <ol>
+            <li>
+                <p>NPTEL Online Certification certification issued by IIT Kharagpur on 26/10/2022 with Certification No.NPTEL22CS92S53920008</p>
+            </li>
+            <li>
+                <p>Front End Development-HTML certification issued by Great Learning on 04/12/2022 with Certification No.RJVHBNPF</p>
+            </li>
+            <li>
+                <p>Python Fundamentals for Beginners certification issued by Great Learning on 04/12/2022 with Certification No.WWSZSRGB</p>
+            </li>
+            <li>
+                <p>Java certification issued by HackerRank on 30/04/2023 with Certification No.BD53DD875717</p>
+            </li>
+            <li>
+                <p>Java Training Complete Course 2022 certification issued by Udemy on 31/03/2023 with Certification No.b09031a41aaf</p>
+            </li>
+            <li>
+                <p>Certificate course in Python certification issued by PRIDE EDUCARE on 06/03/2023 with Certification No.PRIDE001180</p>
+            </li>
+
+        </ol>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <p>Email: <a href="mailto:akashmj2015@gmail.com">akashmj2015@gmail.com</a></p>
+        <p>Phone: 6360367649</p>
+        <a href="#">LinkedIn</a> | <a href="#">GitHub</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Akash M J. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>
